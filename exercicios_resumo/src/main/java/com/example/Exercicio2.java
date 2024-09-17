@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.example.Models.Funcionarios;
+
 public class Exercicio2 {
     List<Funcionarios> listFuncionarios = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
@@ -47,35 +49,50 @@ public class Exercicio2 {
                     }
                 } else if (escolha == 2) {
                     // Listar funcionarios
-                    System.out.println("Aqui está a lista de todos os funcionarios");
-                    for (Funcionarios funcionarios : listFuncionarios) {
-                        System.out.println(
-                                "Nome: " + funcionarios.nome + " - Cargo: " + funcionarios.cargo + " - Sálario: "
-                                        + funcionarios.salario);
+                    if (listFuncionarios.size() == 0) {
+                        System.out.println("Não há funcionarios cadastrados!");
+                    } else {
+                        System.out.println("Aqui está a lista de todos os funcionarios");
+                        for (Funcionarios funcionarios : listFuncionarios) {
+                            System.out.println(
+                                    "Nome: " + funcionarios.getNome() + " - Cargo: " + funcionarios.getCargo()
+                                            + " - Sálario: "
+                                            + funcionarios.getSalario());
+                        }
                     }
                 } else if (escolha == 3) {
                     // Verificar Média Salarial
-                    double salarioTotal = 0;
-                    for (Funcionarios funcionarios : listFuncionarios) {
-                        salarioTotal += funcionarios.salario;
+                    if (listFuncionarios.size() == 0) {
+                        System.out.println("Não há funcionarios cadastrados!");
+                    } else {
+                        double salarioTotal = 0;
+                        for (Funcionarios funcionarios : listFuncionarios) {
+                            salarioTotal += funcionarios.getSalario();
+                        }
+                        double mediaSalarial = salarioTotal / listFuncionarios.size();
+                        System.out.println("Atualmente a média salarial dos funcionários é de: " + mediaSalarial);
                     }
-                    double mediaSalarial = salarioTotal / listFuncionarios.size();
-                    System.out.println("Atualmente a média salarial dos funcionários é de: " + mediaSalarial);
+
                 } else if (escolha == 4) {
                     // Remover um funcionario
-                    System.out.println("Digite o nome do funcionario que será desligado: ");
-                    String nomeFuncionario = sc.next();
-                    boolean funcionarioEncontrado = false;
-                    for (Funcionarios funcionarios : listFuncionarios) {
-                        if (funcionarios.nome.equals(nomeFuncionario)) {
-                            funcionarioEncontrado = true;
-                            listFuncionarios.remove(funcionarios);
-                            System.out.println("Funcionário desligado com sucesso!");
+                    if (listFuncionarios.size() == 0) {
+                        System.out.println("Não há funcionarios cadastrados!");
+                    } else {
+                        System.out.println("Digite o nome do funcionario que será desligado: ");
+                        String nomeFuncionario = sc.next();
+                        boolean funcionarioEncontrado = false;
+                        for (Funcionarios funcionarios : listFuncionarios) {
+                            if (funcionarios.getNome().equals(nomeFuncionario)) {
+                                funcionarioEncontrado = true;
+                                listFuncionarios.remove(funcionarios);
+                                System.out.println("Funcionário desligado com sucesso!");
+                            }
+                        }
+                        if (!funcionarioEncontrado) {
+                            System.out.println("Funcionário não encontrado");
                         }
                     }
-                    if (!funcionarioEncontrado) {
-                        System.out.println("Funcionário não encontrado");
-                    }
+
                 } else if (escolha == 5) {
                     // Sair
                     System.out.println("Tchau....");

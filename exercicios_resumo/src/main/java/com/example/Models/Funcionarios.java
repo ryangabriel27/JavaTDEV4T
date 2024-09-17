@@ -1,10 +1,10 @@
-package com.example;
+package com.example.Models;
 
 public class Funcionarios {
     // Atributos
-    String nome;
-    double salario;
-    String cargo;
+    private String nome;
+    private double salario;
+    private String cargo;
 
     // Construtores
 

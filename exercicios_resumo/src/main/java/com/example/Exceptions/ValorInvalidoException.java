@@ -1,4 +1,4 @@
-package com.example;
+package com.example.Exceptions;
 
 // Exception Personalizada
 public class ValorInvalidoException extends RuntimeException {

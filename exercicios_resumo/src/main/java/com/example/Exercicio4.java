@@ -1,6 +1,9 @@
 package com.example;
 
 import java.util.Scanner;
+
+import com.example.Exceptions.ValorInvalidoException;
+
 import java.util.InputMismatchException;
 
 public class Exercicio4 {
