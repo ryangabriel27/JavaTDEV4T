@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Exercicio1 {
     String nome;
     double[] notas = new double[4];
-    double media = 0;
+    double media = 0.0;
     Scanner sc = new Scanner(System.in);
     int bonus = 0;
 
