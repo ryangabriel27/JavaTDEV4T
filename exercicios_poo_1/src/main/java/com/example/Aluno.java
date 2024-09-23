@@ -9,13 +9,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Aluno extends Pessoa {
+public class Aluno extends Pessoa implements Avaliavel{
     private String matricula;
     private double[] notas = new double[3];
 
     @Override
     public String exibirInformacoes() {
-        return "Nome: " + getNome() + " - CPF: " + getCpf() + "- Matricula: " + getMatricula() + " - Média: "
+        return "Nome: " + getNome() + " - CPF: " + getCpf() + "- Matricula: " + getMatricula();
+    }
+
+    public String exibirInformacoesMedia() {
+        return "Nome: " + getNome() + " - CPF: " + getCpf() + "- Matricula: " + getMatricula() + "- Média: "
                 + String.valueOf(calcularMedia());
     }
 
@@ -25,5 +29,17 @@ public class Aluno extends Pessoa {
             somaDasNotas += notas[i];
         }
         return somaDasNotas / notas.length;
+    }
+
+    @Override
+    public void avaliaDesempenho() {
+        double media = calcularMedia();
+        if (media >= 7) {
+            System.out.println("Aprovado!");
+        } else if (media >=5 && media < 7){
+            System.out.println("Recuperação!");
+        } else {
+            System.out.println("Reprovado!");
+        }
     }
 }

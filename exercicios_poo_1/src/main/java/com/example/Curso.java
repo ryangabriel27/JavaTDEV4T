@@ -32,5 +32,4 @@ public class Curso {
                     "Aluno: " + aluno.getNome() + "- CPF: " + aluno.getCpf() + " - Matricula: " + aluno.getMatricula());
         }
     }
-
 }
