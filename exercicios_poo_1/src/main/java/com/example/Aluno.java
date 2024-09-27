@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Aluno extends Pessoa implements Avaliavel{
+public class Aluno extends Pessoa implements Avaliavel {
     private String matricula;
     private double[] notas = new double[3];
 
@@ -32,14 +32,17 @@ public class Aluno extends Pessoa implements Avaliavel{
     }
 
     @Override
-    public void avaliaDesempenho() {
+    public String avaliaDesempenho() {
         double media = calcularMedia();
         if (media >= 7) {
-            System.out.println("Aprovado!");
-        } else if (media >=5 && media < 7){
-            System.out.println("Recuperação!");
+            
+            return "Aprovado!";
+        } else if (media >= 5 && media < 7) {
+            
+            return "Recuperação!";
         } else {
-            System.out.println("Reprovado!");
+            
+            return "Reprovado!";
         }
     }
 }

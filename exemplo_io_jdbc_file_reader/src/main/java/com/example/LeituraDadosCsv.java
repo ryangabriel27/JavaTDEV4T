@@ -5,11 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class LeituraDadosCsv {
-    public void teste() {
-        String arquivoCSV = "dados.csv";
-        String linha = "";
-        String divisor = ","; // O divisor usado no CSV, neste caso é a vírgula
+    String arquivoCSV = "dados.csv";
+    String linha = "";
+    String divisor = ","; // O divisor usado no CSV, neste caso é a vírgula
 
+    public void teste() {
         try (BufferedReader br = new BufferedReader(new FileReader(arquivoCSV))) {
             // Lendo e imprimindo o cabeçalho (primeira linha)
             if ((linha = br.readLine()) != null) {

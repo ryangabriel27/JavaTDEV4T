@@ -269,16 +269,10 @@ public class Menu {
                             }
                             alunoEdit.setNotas(notas);
                             double mediaAluno = alunoEdit.calcularMedia();
-                            if (mediaAluno < 5) {
-                                status = "REPROVADO";
-                            } else if (mediaAluno >= 5 && mediaAluno < 7) {
-                                status = "EM RECUPERAÇÃO";
-                            } else {
-                                status = "APROVADO";
-                            }
+                            String situacaoAluno = alunoEdit.avaliaDesempenho();
                             JOptionPane.showMessageDialog(null, "Notas enviadas com sucesso!");
                             JOptionPane.showMessageDialog(null,
-                                    "Média do aluno: " + mediaAluno + "\nSituação: " + status);
+                                    "Média do aluno: " + mediaAluno + "\nSituação: " + situacaoAluno);
                         }
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage(), "Erro",
